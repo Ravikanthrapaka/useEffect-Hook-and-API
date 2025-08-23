@@ -23,7 +23,7 @@ useEffect(()=>{
 console.log(products)
 })
 
-},[])
+},[id])
 //use axios
 
   return (
