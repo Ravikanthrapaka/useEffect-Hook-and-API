@@ -16,6 +16,10 @@ import Details from './pages/Details'
 import Products from './pages/Products'
 
 import Card from './components/Card'
+import Navbar from './components/Navbar'
+
+import Cart from './pages/Cart'
+
 
 function App() {
   return (
@@ -23,23 +27,15 @@ function App() {
     <>
     
     
-    
-    <div className='border-neutral-300 border-b py-4 px-10 flex justify-between'>
-
-      <Link to={"/"} className='font-semibold text-md '>API's and useEffect</Link>
-      
-
-      <div className="flex gap-4">
-        <Link to={"/"}>Home</Link>
-        <Link to={"/details"}>Details</Link>
-
-      </div>
-    </div>
+    <Navbar/>
+  
 
     <Routes>
 
       <Route path='/' element={<Products/>}/>
       <Route path='/details/:id' element={<Details/>}/>
+      <Route path='/cart' element={<Cart/>}/>
+
 
     </Routes>
 

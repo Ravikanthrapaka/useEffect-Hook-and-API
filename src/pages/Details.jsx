@@ -1,12 +1,21 @@
 
 
-
+import { useDispatch } from 'react-redux'
 
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { useParams } from 'react-router-dom'
 import Products from './Products'
+import { addToCart } from '../redux/CartSlice'
 function Details() {
+
+    const dispatch=useDispatch();
+
+
+    function handleAddToCart(){
+
+        dispatch(addToCart(product))
+    }
 
 let {id} = useParams()
     let [product, setProduct] = useState({})
@@ -40,7 +49,7 @@ let {id} = useParams()
             <div className="flex gap-4">
 
                 <button className='border border-black bg-black text-white py-3 px-5'>Purchase Now</button>
-                <button className='border border-black text-black py-3 px-4'>Add to Cart</button>
+                <button onClick={handleAddToCart} className='border border-black text-black py-3 px-4 hover:bg-neutral-100 cursor-pointer'>Add to Cart</button>
             </div>
             
             </div>

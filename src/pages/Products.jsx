@@ -13,17 +13,17 @@ function Products() {
 //   .then(data => console.log(data));
 //not good approach
 
-let [products, serProducts]=useState([])
+let [products, setProducts]=useState([])
 
 useEffect(()=>{
 
     axios.get('https://fakestoreapi.com/products/').then((products)=>{
 
-    serProducts(products.data)
+    setProducts(products.data)
 console.log(products)
 })
 
-},[id])
+},[])
 //use axios
 
   return (
@@ -35,7 +35,7 @@ console.log(products)
 
             {
 
-                products.length>0? products.map(product=> <Card id={product.id} img={product.image} title={product.title} price={product.price} desc={product.description}  />):<div className="text-2xl">Loading...</div>
+                products.length>0? products.map(product=> <Card key={product.id} id={product.id} img={product.image} title={product.title} price={product.price} desc={product.description}  />):<div className="text-2xl">Loading...</div>
 
 
                 
